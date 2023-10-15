@@ -1,88 +1,53 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
+    <!--  Header-->
+    <div class="d-flex justify-content-between">
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </WelcomeItem>
+        <!--    Logo-->
+        <div class="col-6">
+            <img class="h-auto w-75" src="../assets/icon/png/verflixtLogo.png" alt="videoflix logo"/>
+        </div>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
+        <!--    Choose Language Model-->
+        <div class="col-3 d-flex justify-content-center me-2">
+            <div class="dropdown-center">
+                <button class="btn btn-dark border-white text-white dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-translate mb-1 me-1"
+                         viewBox="0 0 16 16">
+                        <path
+                            d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+                        <path
+                            d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+                    </svg>
+                    <span class="d-none">{{ $t('LandingPage.ChooseLanguage') }}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark border-1 border-secondary-subtle">
+                    <li><a class="dropdown-item text-white fw-bold"
+                           href="#">{{ $t('LandingPage.LanguageOptions.option-1') }}</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider bg-secondary-subtle">
+                    </li>
+                    <li><a class="dropdown-item text-white fw-bold"
+                           href="#">{{ $t('LandingPage.LanguageOptions.option-2') }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank" rel="noopener"
-      >Cypress Component Testing</a
-    >.
-
-    <br />
-
-    More instructions are available in <code>README.md</code>.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Ecosystem</template>
-
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+        <!--    Login Button-->
+        <div class="col-3 d-flex justify-content-center">
+            <button type="button" class="btn btn-danger">{{ $t('LandingPage.Login') }}</button>
+        </div>
+    </div>
 </template>
+
+<style scoped>
+
+</style>

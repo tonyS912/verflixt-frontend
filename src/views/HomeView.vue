@@ -1,9 +1,19 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import TheWelcome from '@/components/TheWelcome.vue'
+import WelcomeItem from "@/components/WelcomeItem.vue";
+import MyFooter from "@/components/MyFooter.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <main class="vh-90 d-flex flex-column justify-content-between">
+        <TheWelcome/>
+        <WelcomeItem/>
+        <MyFooter/>
+    </main>
 </template>
+
+<style scoped>
+.vh-90 {
+    height: 90vh;
+}
+</style>

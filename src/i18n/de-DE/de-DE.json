@@ -1,1 +1,20 @@
-{}
+{
+  "LandingPage": {
+    "ChooseLanguage": "Sprache Wählen",
+    "LanguageOptions": {
+      "option-1": "Deutsch",
+      "option-2": "Englisch"
+    },
+    "Login": "Einloggen",
+    "MarketingBanner": {
+      "Heading": "Die größten Filme, die besten Serien und exklusive Originale aus Deutschland und der ganzen Welt.",
+      "Heading-2": "Unbegrenzt Filme, Serien und mehr",
+      "ShortIntro": "Unbegrenzt streamen. Jederzeit kündigen.",
+      "Content": "Sind Sie startklar? Geben Sie Ihre E-Mail-Adresse ein, um Ihre Mitgliedschaft zu beginnen"
+    },
+    "InputRegistry": {
+      "Label": "E-Mail-Adresse",
+      "StartRegister": "Loslegen"
+    }
+  }
+}
