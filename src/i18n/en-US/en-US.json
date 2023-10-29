@@ -24,6 +24,12 @@
             "LastName": "last name",
             "Button": "Register"
         },
+        "LoginPage": {
+            "Heading": "Login",
+            "UserMail": "User email",
+            "Password": "password",
+            "Button": "Login"
+        },
         "MyFooter": {
             "LegalNotice": "Legal Notice",
             "PrivacyPolicy": "Privacy Policy"

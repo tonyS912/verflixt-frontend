@@ -2,8 +2,9 @@
 import TheWelcome from '@/components/TheWelcome.vue'
 import IconEye from "@/assets/icon/IconEye.vue";
 import IconEyeSlash from "@/assets/icon/IconEyeSlash.vue";
-import {ref} from "vue";
 import MyFooter from "@/components/MyFooter.vue";
+
+import {ref} from "vue";
 
 let username = ref('');
 let email = ref('');
@@ -28,9 +29,7 @@ const togglePasswordVisibility = (id) => {
 };
 
 const registerUser = ref(() => {
-    console.log("Funktion wird aufgerufen")
     const url = "https://verflixt-back.tony-schiller.com/authentication/register/";
-    console.log(url)
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -63,7 +62,7 @@ const registerUser = ref(() => {
                        v-model="username">
             </div>
 
-            <!--Email from Startpage-->
+            <!--Email-->
             <div class="input-group my-3">
                 <input type="email" class="form-control"
                        :placeholder="$t('LandingPage.InputRegistry.UserMail')"
@@ -110,7 +109,7 @@ const registerUser = ref(() => {
                        v-model="lastName">
             </div>
 
-            <!-- -->
+            <!--Register -->
             <div class="input-group my-3">
                 <button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1">
                     {{ $t('LandingPage.InputRegistry.Button') }}
