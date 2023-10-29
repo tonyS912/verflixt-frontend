@@ -1,1 +1,32 @@
-{}
+{
+    "LandingPage": {
+        "ChooseLanguage": "Choose language",
+        "LanguageOptions": {
+            "option-1": "German",
+            "option-2": "English"
+        },
+        "Login": "Login",
+        "MarketingBanner": {
+            "Heading": "The biggest movies, the best series and exclusive originals from Germany and around the world.",
+            "Heading-2": "Unlimited movies, series and more",
+            "ShortIntro": "Stream unlimited. Cancel at any time.",
+            "Content": "Are you ready to start? Enter your email address to start your membership"
+        },
+        "InputRegistry": {
+            "Label": "E-Mail address",
+            "StartRegister": "Let's go",
+            "Heading": "Registration",
+            "UserMail": "User email",
+            "UserName": "User name",
+            "Password": "password",
+            "ConfirmPassword": "confirm password",
+            "FirstName": "first name",
+            "LastName": "last name",
+            "Button": "Register"
+        },
+        "MyFooter": {
+            "LegalNotice": "Legal Notice",
+            "PrivacyPolicy": "Privacy Policy"
+        }
+    }
+}

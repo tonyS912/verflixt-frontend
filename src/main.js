@@ -15,20 +15,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // Bootstrap JS
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 
-// Bootstrap Icons
-import 'bootstrap-icons/font/bootstrap-icons.css'
-
 // Translations Datas
 import enTranslation from './i18n/en-US/en-US.json';
 import deTranslation from './i18n/de-DE/de-DE.json';
 
 const i18n = createI18n({
-    locale: 'de', // Standardmäßig die englische Sprache verwenden
+    locale: 'Deutsch',
     allowComposition: true,
-    fallbackLocale: 'de',
+    fallbackLocale: 'Deutsch',
     messages: {
-        en: enTranslation,
-        de: deTranslation,
+        Deutsch: deTranslation,
+        English: enTranslation,
     }
 });
 
