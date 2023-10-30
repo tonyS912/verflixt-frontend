@@ -1,21 +1,20 @@
 <script setup>
-import {RouterLink} from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+import TheWelcome from "@/components/TheWelcome.vue";
+import VideoItems from "@/components/VideoItems.vue";
+import MyFooter from "@/components/MyFooter.vue";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
+    <main>
+        <div class="wrapper">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+            <TheWelcome/>
 
-    </div>
+            <VideoItems/>
 
-    <HelloWorld />
-  </header>
+            <MyFooter/>
+        </div>
+    </main>
 </template>
 
 <style>

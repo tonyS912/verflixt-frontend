@@ -1,16 +1,18 @@
 <script setup>
 
+import MyFooter from "@/components/MyFooter.vue";
+import TheWelcome from "@/components/TheWelcome.vue";
+import VideoItems from "@/components/VideoItems.vue";
 </script>
 
 <template>
-  <div >
-    <h1 class="text-green">it's working</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
-  </div>
+    <div>
+        <TheWelcome/>
+
+        <VideoItems/>
+
+        <MyFooter/>
+    </div>
 </template>
 
 <style scoped>

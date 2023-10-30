@@ -59,7 +59,7 @@ const toggleLanguage = (option) => {
 
         <!--    Login Button-->
         <div class="col-3 d-flex justify-content-center">
-            <button type="button" class="btn btn-danger">{{ $t('LandingPage.Login') }}</button>
+            <RouterLink type="button" class="btn btn-danger" :to="{ path: '/login' }" >{{ $t('LandingPage.Login') }}</RouterLink>
         </div>
     </div>
 </template>
