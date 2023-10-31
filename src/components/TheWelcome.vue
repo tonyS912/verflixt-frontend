@@ -24,16 +24,16 @@ const toggleLanguage = (option) => {
 
 <template>
     <!--  Header-->
-    <div class="d-flex justify-content-between position-sticky top-0">
+    <div class="d-flex mt-lg-4 justify-content-between position-sticky top-0 bg-verflixt" style="max-height: 50px">
 
         <!--    Logo-->
-        <div class="col-6">
-            <a type="button" href="#"><img class="h-auto w-75" src="../assets/icon/png/verflixtLogo.png"
+        <div class="col-4 align-self-center">
+            <a type="button" href="#"><img class="w-100" src="../assets/icon/png/verflixtLogo.png"
                                            alt="videoflix logo"/></a>
         </div>
 
         <!--    Choose Language Model-->
-        <div class="col-3 d-flex justify-content-center me-2">
+        <div class="col-3 d-flex justify-content-center align-self-center me-2">
             <div class="dropdown-center">
                 <button class="btn btn-dark border-white text-white dropdown-toggle" type="button"
                         data-bs-toggle="dropdown"
@@ -58,12 +58,14 @@ const toggleLanguage = (option) => {
         </div>
 
         <!--    Login Button-->
-        <div class="col-3 d-flex justify-content-center">
-            <RouterLink type="button" class="btn btn-danger" :to="{ path: '/login' }" >{{ $t('LandingPage.Login') }}</RouterLink>
+        <div class="col-4 d-flex justify-content-end">
+            <RouterLink type="button" class="btn btn-danger align-self-center" :to="{ path: '/login' }" >{{ $t('LandingPage.Login') }}</RouterLink>
         </div>
     </div>
 </template>
 
 <style scoped>
-
+.bg-verflixt {
+    background: #141414
+}
 </style>

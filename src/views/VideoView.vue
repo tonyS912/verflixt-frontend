@@ -8,11 +8,11 @@ import MyFooter from "@/components/MyFooter.vue";
     <main>
         <div class="wrapper">
 
-            <TheWelcome/>
+            <TheWelcome class="z-2"/>
 
             <VideoItems/>
 
-            <MyFooter/>
+            <MyFooter class="z-2"/>
         </div>
     </main>
 </template>
