@@ -5,7 +5,7 @@ import ArrowRightIcon from "@/assets/icon/arrowRightIcon.vue";
 </script>
 
 <template>
-    <div>
+    <div >
         <div class="w-100 card-img-overlay top-25">
             <!--     Background Cover Image-->
             <img class="d-block w-100 opacity-25 d-lg-none" src="../assets/icon/jpg/filmstrip.jpg"

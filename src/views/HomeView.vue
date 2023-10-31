@@ -6,9 +6,9 @@ import MyFooter from "@/components/MyFooter.vue";
 
 <template>
     <main class="vh-90 d-flex flex-column justify-content-between">
-        <TheWelcome/>
+        <TheWelcome class="z-2"/>
         <WelcomeItem/>
-        <MyFooter/>
+        <MyFooter class="z-2"/>
     </main>
 </template>
 

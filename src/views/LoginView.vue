@@ -52,9 +52,9 @@ const loginUser = async () => {
 <template>
     <TheWelcome/>
 
-    <div class="d-flex flex-column justify-content-center" style="height: 70vh;">
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 70vh;">
         <h1>{{ $t('LandingPage.LoginPage.Heading') }}</h1>
-        <form id="loginUser" @submit.prevent="loginUser">
+        <form id="loginUser" class="col-12 col-md-8 col-lg-5" @submit.prevent="loginUser">
 
             <!--Email-->
             <div class="input-group my-3">
