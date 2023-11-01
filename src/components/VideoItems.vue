@@ -6,9 +6,10 @@ const videos = ref([]);
 
 const fetchVideo = async () => {
     const url = "https://verflixt-back.tony-schiller.com/videos";
+    const token = localStorage.getItem('token');
     const requestOptions = {
         method: 'GET',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `Token ${token}`},
         redirect: 'follow',
     };
     try {
@@ -35,10 +36,10 @@ onBeforeMount(() => {
 
         <div v-for="video in videos" :key="video.id" class="col">
             <div class="card bg-secondary mb-2">
-                <h3 class="ps-3 ms-1 mt-3">{{ video.title }}</h3>
+                <h3 class="ps-3 mx-1 mt-3">{{ video.title }}</h3>
                 <div class="card-body">
                     <video class="align-self-center col-12 justify-content-center mb-2" :src="video.video_file" controls preload="auto"></video>
-                    <p class="card-text ms-1">{{ video.description }}</p>
+                    <p class="card-text mx-1">{{ video.description }}</p>
                 </div>
             </div>
         </div>

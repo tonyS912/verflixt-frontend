@@ -6,6 +6,7 @@
             "option-2": "Englisch"
         },
         "Login": "Einloggen",
+        "Logout": "Abmelden",
         "MarketingBanner": {
             "Heading": "Die größten Filme, die besten Serien und exklusive Originale aus Deutschland und der ganzen Welt.",
             "Heading-2": "Unbegrenzt Filme, Serien und mehr",
@@ -33,6 +34,11 @@
         "MyFooter": {
             "LegalNotice": "Impressum",
             "PrivacyPolicy": "Datenschutzerklärung"
+        },
+        "ResetPassword": {
+            "Button": "Passwort Zurücksetzen",
+            "Placeholder": "Neues Passwort",
+            "Placeholder2": "Passwort Wiederholen"
         }
     }
 }

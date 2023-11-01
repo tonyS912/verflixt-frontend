@@ -1,6 +1,6 @@
 <script setup>
 import TranslationIcon from "@/assets/icon/TranslationIcon.vue";
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import {useI18n} from 'vue-i18n';
 
 
@@ -19,6 +19,15 @@ const toggleLanguage = (option) => {
         locale.value = selectedLanguage.value
     }
 };
+
+const isUserLoggedIn = computed(() => {
+    return localStorage.getItem('token') !== null;
+});
+
+const logout = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+}
 
 </script>
 
@@ -59,7 +68,7 @@ const toggleLanguage = (option) => {
 
         <!--    Login Button-->
         <div class="col-4 d-flex justify-content-end">
-            <RouterLink type="button" class="btn btn-danger align-self-center" :to="{ path: '/login' }" >{{ $t('LandingPage.Login') }}</RouterLink>
+            <RouterLink type="button" class="btn btn-danger align-self-center" @click="isUserLoggedIn ? logout() : null" :to="{ path: '/login' }" >{{ isUserLoggedIn ? $t('LandingPage.Logout') : $t('LandingPage.Login') }}</RouterLink>
         </div>
     </div>
 </template>

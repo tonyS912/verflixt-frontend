@@ -17,35 +17,72 @@ const togglePasswordVisibility = (id) => {
         showPassword.value = !showPassword.value;
         eyeIcon.value = showPassword.value ? IconEyeSlash : IconEye;
     }
-}
+};
+
 
 const loginUser = async () => {
     try {
         const url = "https://verflixt-back.tony-schiller.com/authentication/login/";
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            redirect: 'follow',
-            body: JSON.stringify({
-                email: email.value,
-                password: password.value,
-            }),
-        };
 
-        const response = await fetch(url, requestOptions);
+        //console.log("triggern der sendLoginRequest funktion")
+        const response = await sendLoginRequest(url);
+        //console.log("fetching abgeschlossen");
+
+        //console.log("response if start")
         if (response.ok) {
             const responseData = await response.json();
             localStorage.setItem('username', responseData.username);
             localStorage.setItem('token', responseData.token);
-            //console.log(responseData);
-            await router.push({ name: 'video' });
-        } else {
-            console.log('Fehler bei der Anfrage:', response.status);
+            //console.log("daten wurd im localstorage gespeichert")
+
+            const token = responseData.token;
+            //console.log("sendAuthenticatedRequest getriggert")
+            const success = await sendAuthenticatedRequest(token);
+
+            if (success) {
+                await router.push({name: 'video'});
+            } else {
+                console.log('Fehler bei der Anfrage');
+            }
         }
     } catch (error) {
         console.error('Fehler bei der Anfrage:', error);
+        // TODO: ob du behindert bist hab ich gefragt
     }
 };
+
+
+const sendLoginRequest = async (url) => {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        redirect: 'follow',
+        body: JSON.stringify({
+            email: email.value,
+            password: password.value,
+        }),
+    };
+    //console.log("fetching start", url)
+    return await fetch(url, requestOptions);
+};
+
+
+const sendAuthenticatedRequest = async (token) => {
+    const url = "https://verflixt-back.tony-schiller.com/videos/"
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`,
+        },
+        redirect: 'follow',
+    };
+    //console.log("mitten in sendAuth", url, requestOptions)
+    const response = await fetch(url, requestOptions);
+    return response.ok;
+};
+
+
 
 </script>
 
