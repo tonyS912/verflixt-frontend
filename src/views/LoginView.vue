@@ -112,6 +112,7 @@ const sendAuthenticatedRequest = async (token) => {
                     <component :is="eyeIcon"/>
                 </button>
             </div>
+            <a class="text-danger" href="/forgotPassword">Passwort Vergessen</a>
 
             <!--Register -->
             <div class="input-group my-3">
