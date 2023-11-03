@@ -5,14 +5,29 @@ import {ref} from "vue";
 
 let email = ref('');
 
+const resetPassword = async () => {
+    const url = "https://verflixt-back.tony-schiller.com/authentication/api/reset/password"
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        redirect: 'follow',
+        body: JSON.stringify({
+            email: email.value,
+        }),
+    };
+
+    return await fetch(url, requestOptions)
+}
+
 </script>
 
 <template>
-    <TheWelcome/>
+    <TheWelcome/><br><br><br><br><br><br>
 
     <div class="my-5 d-md-flex flex-md-column align-items-md-center">
 
-        <form id="resetPassword" class="col-12 col-md-8 col-lg-5">
+        <form id="resetPassword" class="col-12 col-md-8 col-lg-5" @submit.prevent="resetPassword">
             <div class="input-group my-3">
                 <input type="email" class="form-control"
                        :placeholder="$t('LandingPage.InputRegistry.UserMail')"
@@ -21,14 +36,14 @@ let email = ref('');
             </div>
 
             <div class="input-group my-3">
-                <button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1">
+                <button class="btn btn-danger col-12 fw-bold" type="submit" id="resetButton">
                     {{ $t('LandingPage.ResetPassword.Button') }}
                 </button>
             </div>
 
         </form>
 
-    </div>
+    </div><br><br><br>
 
     <MyFooter class="mt-5"/>
 </template>

@@ -47,7 +47,6 @@ const loginUser = async () => {
         }
     } catch (error) {
         console.error('Fehler bei der Anfrage:', error);
-        // TODO: ob du behindert bist hab ich gefragt
     }
 };
 
