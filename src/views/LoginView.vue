@@ -111,7 +111,7 @@ const sendAuthenticatedRequest = async (token) => {
                     <component :is="eyeIcon"/>
                 </button>
             </div>
-            <a class="text-danger" href="/forgotPassword">Passwort Vergessen</a>
+            <RouterLink type="link" class="text-danger" :to="{ path: '/forgotPassword'}">Passwort Vergessen</RouterLink>
 
             <!--Register -->
             <div class="input-group my-3">
