@@ -13,7 +13,6 @@ export default defineConfig({
       '/': {
         target: 'https://verflixt.tony-schiller.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/\w+/, '')
       }
     }
   },
