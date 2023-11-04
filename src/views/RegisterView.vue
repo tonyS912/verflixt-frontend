@@ -52,7 +52,7 @@ const registerUser = ref(() => {
     <TheWelcome/>
     <div class="mt-5 d-md-flex flex-md-column align-items-md-center">
         <h1>{{ $t('LandingPage.InputRegistry.Heading') }}</h1>
-        <form id="registerUser" class="col-12 col-md-8 col-lg-5" @submit="registerUser">
+        <form id="registerUser" class="col-12 col-md-8 col-lg-5" @submit.prevent="registerUser">
             <!--Username-->
             <div class="input-group my-3">
                 <input type="text"
