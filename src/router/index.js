@@ -1,16 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import VideoView from "@/views/VideoView.vue";
-import RegisterView from "@/views/RegisterView.vue";
-import LoginView from "@/views/LoginView.vue";
-import LegalNotice from "@/views/LegalNotice.vue";
-import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
-import ResetPassword from "@/views/ResetPassword.vue";
-import ForgotPassword from "@/views/ForgotPassword.vue";
-import SuccessfullyRegistered from "@/views/SuccessfullyRegistered.vue";
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
@@ -20,42 +12,46 @@ const router = createRouter({
         {
             path: '/video',
             name: 'video',
-            component: VideoView
+            component: () => import('@/views/VideoView.vue')
         },
         {
             path: '/register',
             name: 'register',
-            component: RegisterView
+            component: () => import('@/views/RegisterView.vue')
         },
         {
             path: '/login',
             name: 'login',
-            component: LoginView
+            component: () => import('@/views/LoginView.vue')
         },
         {
             path: '/LegalNotice',
             name: 'legal notice',
-            component: LegalNotice
+            component: () => import('@/views/LegalNotice.vue')
         },
         {
             path: '/PrivacyPolicy',
             name: 'privacy policy',
-            component: PrivacyPolicy
+            component: () => import('@/views/PrivacyPolicy.vue')
         },
         {
             path: '/resetPassword',
             name: 'resetPassword',
-            component: ResetPassword
+            component: () => import('@/views/ResetPassword.vue')
         },
         {
             path: '/forgotPassword',
             name: 'forgotPassword',
-            component: ForgotPassword
+            component: () => import('@/views/ForgotPassword.vue')
         },
         {
             path: '/successfullyRegistry',
             name: 'successRegistered',
-            component: SuccessfullyRegistered
+            component: () => import('@/views/SuccessfullyRegistered.vue')
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'NotFound',
         },
     ]
 })
