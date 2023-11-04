@@ -11,6 +11,7 @@ let username = ref('');
 let email = ref('');
 let password = ref('');
 let password2 = ref('');
+let passwordError = ref('');
 let firstName = ref('');
 let lastName = ref('');
 let showPassword = ref(false);
@@ -28,6 +29,13 @@ const togglePasswordVisibility = (id) => {
         eyeIcon2.value = showPassword.value ? IconEyeSlash : IconEye;
     }
 };
+
+const validatePassword = () => {
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#!?$%^&+=]).{6,}$/;
+
+    passwordError.value = passwordPattern.test(password.value);
+    console.log(passwordError.value)
+}
 
 const registerUser = async () => {
     const url = "https://verflixt-back.tony-schiller.com/authentication/register/";
@@ -47,7 +55,7 @@ const registerUser = async () => {
     const success = await fetch(url, requestOptions)
 
     if (success) {
-        await router.push({name: "home"})
+        await router.push({name: "confirmation"})
     }
 };
 
@@ -76,16 +84,22 @@ const registerUser = async () => {
             </div>
 
             <!--Password Section -->
-            <div class="input-group my-3">
-                <input :type="showPassword ? 'text' : 'password'"
-                       class="form-control"
-                       :placeholder="$t('LandingPage.InputRegistry.Password')"
-                       :title="$t('LandingPage.InputRegistry.Password')" required
-                       v-model="password">
-                <button class="btn btn-danger" type="button"
-                        @click="() =>togglePasswordVisibility('password')">
-                    <component :is="eyeIcon"/>
-                </button>
+            <div class="input-group my-3 d-flex flex-column">
+                <div class="input-group">
+                    <input :type="showPassword ? 'text' : 'password'"
+                           class="form-control"
+                           :placeholder="$t('LandingPage.InputRegistry.Password')"
+                           :title="$t('LandingPage.InputRegistry.Password')" required
+                           v-model="password"
+                           @input="validatePassword">
+                    <button class="btn btn-danger" type="button"
+                            @click="() =>togglePasswordVisibility('password')">
+                        <component :is="eyeIcon"/>
+                    </button>
+                </div>
+                <span class="text-light" :class="passwordError ? 'd-none' : 'd-block'">{{
+                        $t('LandingPage.RegisterPage.requirements')
+                    }}</span>
             </div>
             <div class="input-group my-3 d-flex flex-column">
                 <div class="input-group">
@@ -99,7 +113,9 @@ const registerUser = async () => {
                         <component :is="eyeIcon2"/>
                     </button>
                 </div>
-                <span class="text-danger" :class="password !== password2 ? 'd-block' : 'd-none'">Passwörter stimmen nicht überein</span>
+                <span class="text-light" :class="password !== password2 ? 'd-block' : 'd-none'">{{
+                        $t('LandingPage.RegisterPage.unequalPassword')
+                    }}</span>
             </div>
 
             <!--User Credentials -->
@@ -116,9 +132,9 @@ const registerUser = async () => {
 
             <!--Register -->
             <div class="input-group my-3">
-                <button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1">
+                <Button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1">
                     {{ $t('LandingPage.InputRegistry.Button') }}
-                </button>
+                </Button>
             </div>
 
         </form>

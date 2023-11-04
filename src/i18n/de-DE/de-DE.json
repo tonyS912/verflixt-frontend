@@ -8,6 +8,8 @@
         "Login": "Einloggen",
         "Logout": "Abmelden",
         "Success": "Du wurdest erfolgreich Registriert!",
+        "Confirm": "Bitte überprüfe deine E-Mails und bestätige den Link den wird dir gesendet haben.",
+        "ResetInfo": "Wir haben dir eine Email zum zurücksetzen deines Passwortes gesendet.",
         "MarketingBanner": {
             "Heading": "Die größten Filme, die besten Serien und exklusive Originale aus Deutschland und der ganzen Welt.",
             "Heading-2": "Unbegrenzt Filme, Serien und mehr",
@@ -40,6 +42,10 @@
             "Button": "Passwort Zurücksetzen",
             "Placeholder": "Neues Passwort",
             "Placeholder2": "Passwort Wiederholen"
+        },
+        "RegisterPage": {
+            "unequalPassword": "Die passwörter stimmen nicht überein",
+            "requirements": "Das Passwort muss mindestens 6 Zeichen lang sein und mindestens 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Zahl und 1 Sonderzeichen enthalten."
         }
     }
 }

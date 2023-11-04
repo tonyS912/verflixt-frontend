@@ -9,6 +9,8 @@
         "Logout": "Logout",
         "resetPassword": "reset password",
         "Success": "You have been successfully registered!",
+        "Confirm": "Please check your email and confirm the link that was sent to you.",
+        "ResetInfo": "We have sent you an email to reset your password.",
         "MarketingBanner": {
             "Heading": "The biggest movies, the best series and exclusive originals from Germany and around the world.",
             "Heading-2": "Unlimited movies, series and more",
@@ -41,6 +43,10 @@
             "Button": "Passwort Zurücksetzen",
             "Placeholder": "Neues Passwort",
             "Placeholder2": "Passwort Wiederholen"
+        },
+        "RegisterPage": {
+            "unequalPassword": "The passwords do not match",
+            "requirements": "The password must be at least 6 characters long and contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character."
         }
     }
 }

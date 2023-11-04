@@ -55,6 +55,16 @@ const router = createRouter({
             name: 'NotFound',
             component: () => import('@/views/LoginView.vue')
         },
+        {
+            path: '/confirmRegistry',
+            name: 'confirmation',
+            component: () => import('@/views/ConfirmRegistry.vue')
+        },
+        {
+            path: '/passwordResetInfo',
+            name: 'infoPasswordReset',
+            component: () => import('@/views/InfoPasswordReset.vue')
+        },
     ]
 })
 

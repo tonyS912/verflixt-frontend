@@ -23,8 +23,6 @@ const finishRegister = async () => {
 
 onBeforeMount(finishRegister);
 
-console.log("works")
-
 </script>
 
 <template>

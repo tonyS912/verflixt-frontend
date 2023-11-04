@@ -8,6 +8,7 @@ import router from "@/router";
 
 let password = ref('');
 let confirm_password = ref('');
+let passwordError = ref('')
 let showPassword = ref(false);
 let showPassword2 = ref(false);
 let eyeIcon = ref(IconEye);
@@ -22,6 +23,13 @@ const togglePasswordVisibility = (id) => {
         eyeIcon2.value = showPassword.value ? IconEyeSlash : IconEye;
     }
 };
+
+const validatePassword = () => {
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#!?$%^&+=]).{6,}$/;
+
+    passwordError.value = passwordPattern.test(password.value);
+    console.log(passwordError.value)
+}
 
 const resetPassword = async () => {
     //let base_url = window.location.origin + window.location.pathname + window.location.search
@@ -55,21 +63,27 @@ const resetPassword = async () => {
 </script>
 
 <template>
-    <TheWelcome/><br><br><br><br>
+    <TheWelcome/>
+    <br><br><br><br>
 
     <div class="my-5 d-md-flex flex-md-column align-items-md-center">
 
         <form id="resetPassword" class="col-12 col-md-8 col-lg-5" @submit.prevent="resetPassword">
-            <div class="input-group my-3">
-                <input :type="showPassword ? 'text' : 'password'"
-                       class="form-control"
-                       :placeholder="$t('LandingPage.ResetPassword.Placeholder')"
-                       :title="$t('LandingPage.ResetPassword.Placeholder')" required
-                       v-model="password">
-                <button class="btn btn-danger" type="button"
-                        @click="() =>togglePasswordVisibility('password')">
-                    <component :is="eyeIcon"/>
-                </button>
+            <div class="input-group my-3 d-flex flex-column">
+                <div class="input-group">
+                    <input :type="showPassword ? 'text' : 'password'"
+                           class="form-control"
+                           :placeholder="$t('LandingPage.ResetPassword.Placeholder')"
+                           :title="$t('LandingPage.ResetPassword.Placeholder')" required
+                           v-model="password" @input="validatePassword">
+                    <button class="btn btn-danger" type="button"
+                            @click="() =>togglePasswordVisibility('password')">
+                        <component :is="eyeIcon"/>
+                    </button>
+                </div>
+                <span class="text-light" :class="passwordError ? 'd-none' : 'd-block'">{{
+                        $t('LandingPage.RegisterPage.requirements')
+                    }}</span>
             </div>
             <div class="input-group my-3 d-flex flex-column">
                 <div class="input-group">
@@ -94,7 +108,8 @@ const resetPassword = async () => {
 
         </form>
 
-    </div><br><br>
+    </div>
+    <br><br>
 
     <MyFooter/>
 </template>

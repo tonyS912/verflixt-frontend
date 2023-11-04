@@ -2,6 +2,7 @@
 import TheWelcome from "@/components/TheWelcome.vue";
 import MyFooter from "@/components/MyFooter.vue";
 import {ref} from "vue";
+import router from "@/router";
 
 let email = ref('');
 
@@ -17,7 +18,11 @@ const resetPassword = async () => {
         }),
     };
 
-    return await fetch(url, requestOptions)
+    const success =  await fetch(url, requestOptions)
+
+    if (success) {
+        await router.push({path: '/passwordResetInfo'})
+    }
 }
 
 </script>
