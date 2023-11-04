@@ -10,7 +10,7 @@ import ForgotPassword from "@/views/ForgotPassword.vue";
 import SuccessfullyRegistered from "@/views/SuccessfullyRegistered.vue";
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: [
         {
             path: '/',
