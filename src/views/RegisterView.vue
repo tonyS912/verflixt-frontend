@@ -5,6 +5,7 @@ import IconEyeSlash from "@/assets/icon/IconEyeSlash.vue";
 import MyFooter from "@/components/MyFooter.vue";
 
 import {ref} from "vue";
+import router from "@/router";
 
 let username = ref('');
 let email = ref('');
@@ -28,7 +29,7 @@ const togglePasswordVisibility = (id) => {
     }
 };
 
-const registerUser = ref(() => {
+const registerUser = async () => {
     const url = "https://verflixt-back.tony-schiller.com/authentication/register/";
     const requestOptions = {
         method: 'POST',
@@ -43,8 +44,12 @@ const registerUser = ref(() => {
         first_name: firstName.value,
         last_name: lastName.value,
     });
-    fetch(url, requestOptions)
-});
+    const success = await fetch(url, requestOptions)
+
+    if (success) {
+        await router.push({name: "home"})
+    }
+};
 
 </script>
 
