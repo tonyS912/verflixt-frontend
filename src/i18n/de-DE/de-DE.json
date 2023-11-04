@@ -45,6 +45,7 @@
         },
         "RegisterPage": {
             "unequalPassword": "Die passwörter stimmen nicht überein",
+            "notAllowed": "Leerzeichen sind für den Benutzername nicht erlaubt",
             "requirements": "Das Passwort muss mindestens 6 Zeichen lang sein und mindestens 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Zahl und 1 Sonderzeichen enthalten."
         }
     }

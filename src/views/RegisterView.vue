@@ -4,10 +4,11 @@ import IconEye from "@/assets/icon/IconEye.vue";
 import IconEyeSlash from "@/assets/icon/IconEyeSlash.vue";
 import MyFooter from "@/components/MyFooter.vue";
 
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import router from "@/router";
 
 let username = ref('');
+let usernameError = ref('');
 let email = ref('');
 let password = ref('');
 let password2 = ref('');
@@ -19,6 +20,12 @@ let showPassword2 = ref(false);
 let eyeIcon = ref(IconEye);
 let eyeIcon2 = ref(IconEye);
 
+const validateUsername = () => {
+    const noSpacesPattern = /^[^\s]+$/;
+
+    usernameError.value = noSpacesPattern.test(username.value);
+    //console.log(usernameError.value)
+}
 
 const togglePasswordVisibility = (id) => {
     if (id === 'password') {
@@ -34,8 +41,12 @@ const validatePassword = () => {
     const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#!?$%^&+=]).{6,}$/;
 
     passwordError.value = passwordPattern.test(password.value);
-    console.log(passwordError.value)
+    //console.log(passwordError.value)
 }
+
+const disableSubmitButton = computed(() => {
+    return usernameError.value !== true || passwordError.value !== true || password.value !== password2.value;
+});
 
 const registerUser = async () => {
     const url = "https://verflixt-back.tony-schiller.com/authentication/register/";
@@ -67,12 +78,18 @@ const registerUser = async () => {
         <h1>{{ $t('LandingPage.InputRegistry.Heading') }}</h1>
         <form id="registerUser" class="col-12 col-md-8 col-lg-5" @submit.prevent="registerUser">
             <!--Username-->
-            <div class="input-group my-3">
-                <input type="text"
-                       class="form-control"
-                       :placeholder="$t('LandingPage.InputRegistry.UserName')"
-                       :title="$t('LandingPage.InputRegistry.UserName')" required
-                       v-model="username">
+            <div class="input-group my-3 d-flex flex-column">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control col-12"
+                           :placeholder="$t('LandingPage.InputRegistry.UserName')"
+                           :title="$t('LandingPage.InputRegistry.UserName')" required
+                           v-model="username" @input="validateUsername">
+
+                </div>
+                <span class="text-light" :class="usernameError ? 'd-none' : 'd-block'">{{
+                        $t('LandingPage.RegisterPage.notAllowed')
+                    }}</span>
             </div>
 
             <!--Email-->
@@ -132,7 +149,8 @@ const registerUser = async () => {
 
             <!--Register -->
             <div class="input-group my-3">
-                <Button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1">
+                <Button class="btn btn-danger col-12 fw-bold" type="submit" id="button-addon1"
+                        :disabled="disableSubmitButton">
                     {{ $t('LandingPage.InputRegistry.Button') }}
                 </Button>
             </div>

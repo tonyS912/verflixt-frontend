@@ -46,6 +46,7 @@
         },
         "RegisterPage": {
             "unequalPassword": "The passwords do not match",
+            "notAllowed": "Spaces are not allowed for the username",
             "requirements": "The password must be at least 6 characters long and contain at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character."
         }
     }
