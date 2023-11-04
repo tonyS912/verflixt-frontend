@@ -37,8 +37,8 @@ const logout = () => {
 
         <!--    Logo-->
         <div class="col-4 align-self-center">
-            <a type="button" href="#"><img class="w-100" src="../assets/icon/png/verflixtLogo.png"
-                                           alt="videoflix logo"/></a>
+            <RouterLink type="link" :to="{name: 'home'}"><img class="w-100" src="../assets/icon/png/verflixtLogo.png"
+                                           alt="videoflix logo"/></RouterLink>
         </div>
 
         <!--    Choose Language Model-->
