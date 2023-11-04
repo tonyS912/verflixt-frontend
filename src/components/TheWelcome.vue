@@ -33,7 +33,7 @@ const logout = () => {
 
 <template>
     <!--  Header-->
-    <div class="d-flex mt-lg-4 justify-content-between position-sticky top-0 bg-verflixt" style="max-height: 50px">
+    <div class="d-flex justify-content-between position-sticky top-0 bg-verflixt" style="max-height: 125px">
 
         <!--    Logo-->
         <div class="col-4 align-self-center">
