@@ -8,6 +8,15 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  server: {
+    proxy: {
+      '/': {
+        target: 'https://verflixt.tony-schiller.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/\w+/, '')
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
